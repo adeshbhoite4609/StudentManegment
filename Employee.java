@@ -1,4 +1,4 @@
-package com.example.Model;
+package com.example.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,12 +25,28 @@ public class Employee {
 	private String name;
 	@Column
 	private String city;
+	@OneToOne(cascade=CascadeType.ALL)
+	private Adresss adress;
+		public Adresss getAdress() {
+		return adress;
+	}
+	public void setAdress(Adresss adress) {
+		this.adress = adress;
+	}
+	//@OneToMany(mappedBy="employee",cascade=CascadeType.ALL)
+	//private List <Adresss>adress;
 	
+	//public List<Adresss> getAdress() {
+		//return adress;
+	//}
+	//public void setAdress(List<Adresss> adress) {
+		//this.adress = adress;
+//	}
 	public Employee( String name, String city) {
 		super();
 	
-//		this.name = name;
-//		this.city = city;
+		this.name = name;
+		this.city = city;
 	}
 	public Employee() {
 		super();
